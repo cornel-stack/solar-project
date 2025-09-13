@@ -10,7 +10,7 @@ interface User {
   name?: string
   phone?: string
   emailVerified: boolean
-  createdAt: string
+  createdAt?: string
   preferences?: any
 }
 
@@ -295,12 +295,14 @@ export default function PersonalInfo({ user }: PersonalInfoProps) {
             </label>
             <div className="flex items-center p-3 bg-gray-50 rounded-lg">
               <Calendar className="w-4 h-4 text-gray-400 mr-2" />
-              <span>{new Date(user.createdAt).toLocaleDateString('en-US', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}</span>
+              <span>{user.createdAt
+                ? new Date(user.createdAt).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })
+                : 'Recently joined'}</span>
             </div>
           </div>
 

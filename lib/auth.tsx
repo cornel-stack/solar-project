@@ -53,14 +53,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const accessToken = localStorage.getItem('accessToken')
       if (accessToken) {
         api.setAccessToken(accessToken)
-        const userData = await api.getProfile()
+        const userData = await api.getProfile() as User
         setUser(userData)
       }
     } catch (error) {
       // Try to refresh token
       try {
         await api.refreshToken()
-        const userData = await api.getProfile()
+        const userData = await api.getProfile() as User
         setUser(userData)
       } catch {
         // Clear invalid tokens
@@ -124,7 +124,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const updateProfile = async (data: { name?: string; phone?: string; preferences?: any }) => {
     try {
-      const updatedUser = await api.updateProfile(data)
+      const updatedUser = await api.updateProfile(data) as User
       setUser(updatedUser)
     } catch (error) {
       throw error

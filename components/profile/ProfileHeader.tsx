@@ -9,7 +9,7 @@ interface User {
   name?: string
   phone?: string
   emailVerified: boolean
-  createdAt: string
+  createdAt?: string
   preferences?: any
 }
 
@@ -42,10 +42,12 @@ export default function ProfileHeader({ user, onTabChange }: ProfileHeaderProps)
     // In real app, upload to server here
   }
 
-  const memberSince = new Date(user.createdAt).toLocaleDateString('en-US', {
-    month: 'long',
-    year: 'numeric'
-  })
+  const memberSince = user.createdAt
+    ? new Date(user.createdAt).toLocaleDateString('en-US', {
+        month: 'long',
+        year: 'numeric'
+      })
+    : 'Recently'
 
   const handleViewAchievements = () => {
     if (onTabChange) {
