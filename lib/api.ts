@@ -17,7 +17,7 @@ class ApiClient {
   private accessToken: string | null = null
 
   constructor() {
-    this.baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+    this.baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api'
     
     // Load token from localStorage on client side
     if (typeof window !== 'undefined') {

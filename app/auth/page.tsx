@@ -1,20 +1,91 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import Layout from '@/components/Layout'
 import AuthForm from '@/components/AuthForm'
+import { useAuth } from '@/lib/auth.tsx'
 
 export default function AuthPage() {
   const searchParams = useSearchParams()
+  const router = useRouter()
+  const { loginWithGoogle } = useAuth()
   const [mode, setMode] = useState<'login' | 'signup'>('signup')
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const urlMode = searchParams.get('mode')
     if (urlMode === 'login' || urlMode === 'signup') {
       setMode(urlMode)
     }
-  }, [searchParams])
+
+    // Handle OAuth callback
+    const handleOAuthCallback = async () => {
+      const success = searchParams.get('success')
+      const data = searchParams.get('data')
+      const error = searchParams.get('error')
+
+      // If no OAuth parameters, just stop loading
+      if (!success && !data && !error) {
+        setLoading(false)
+        return
+      }
+
+      if (error) {
+        console.error('OAuth error received:', error)
+        setError(decodeURIComponent(error))
+        setLoading(false)
+        // Clear URL parameters after a delay
+        setTimeout(() => {
+          router.replace('/auth')
+        }, 3000)
+        return
+      }
+
+      if (success === 'true' && data) {
+        try {
+          setLoading(true)
+          const authData = JSON.parse(decodeURIComponent(data))
+
+          console.log('Processing OAuth success:', authData.user.email)
+
+          // Store tokens and user data
+          localStorage.setItem('accessToken', authData.accessToken)
+
+          // Update API client with access token
+          const { api } = await import('@/lib/api')
+          api.setAccessToken(authData.accessToken)
+
+          await loginWithGoogle(authData.user)
+
+          console.log('OAuth login successful, redirecting to dashboard')
+
+          // Clear URL parameters and redirect
+          router.replace('/dashboard')
+        } catch (err: any) {
+          console.error('OAuth callback error:', err)
+          setError('Failed to process authentication data')
+          setLoading(false)
+        }
+      }
+    }
+
+    handleOAuthCallback()
+  }, [searchParams, router, loginWithGoogle])
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Processing authentication...</p>
+          </div>
+        </div>
+      </Layout>
+    )
+  }
 
   return (
     <Layout>
@@ -22,6 +93,11 @@ export default function AuthPage() {
         {/* Left side - Form */}
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
+            {error && (
+              <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-600 text-sm">{error}</p>
+              </div>
+            )}
             <AuthForm mode={mode} onModeChange={setMode} />
           </div>
         </div>

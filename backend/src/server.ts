@@ -1,8 +1,11 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import cors from 'cors'
+import session from 'express-session'
+import passport from 'passport'
 import config from '@/config'
 import routes from '@/routes'
+import { setupPassport } from '@/config/passport'
 import {
   createRateLimiter,
   corsOptions,
@@ -31,6 +34,22 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 
 // Cookie parsing
 app.use(cookieParser(config.cookieSecret))
+
+// Session configuration for Passport
+app.use(session({
+  secret: config.cookieSecret,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: config.nodeEnv === 'production',
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
+}))
+
+// Initialize Passport
+setupPassport()
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Request logging (in development)
 if (config.nodeEnv === 'development') {

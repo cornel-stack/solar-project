@@ -4,6 +4,8 @@ import { sendSuccess, sendError, sendValidationError } from '@/utils/response'
 import { AuthRequest } from '@/types'
 import logger from '@/utils/logger'
 import { body, validationResult } from 'express-validator'
+import passport from 'passport'
+import { generateTokenPair } from '@/utils/jwt'
 
 const authService = new AuthService()
 
@@ -145,7 +147,7 @@ export const updateProfile = async (req: AuthRequest, res: Response): Promise<vo
     }
 
     const { name, phone, preferences } = req.body
-    
+
     const updatedUser = await authService.updateProfile(req.user.id, {
       name,
       phone,
@@ -157,4 +159,55 @@ export const updateProfile = async (req: AuthRequest, res: Response): Promise<vo
     logger.error('Update profile error:', error)
     sendError(res, error.message || 'Failed to update profile', 400)
   }
+}
+
+// Google OAuth routes
+export const googleAuth = passport.authenticate('google', {
+  scope: ['profile', 'email']
+})
+
+export const googleCallback = (req: Request, res: Response): void => {
+  passport.authenticate('google', { session: false }, async (err: any, user: any, info: any) => {
+    try {
+      if (err) {
+        logger.error('Google auth error:', err)
+        return res.redirect(`${process.env.FRONTEND_URL}/auth?error=${encodeURIComponent(err.message || 'Google authentication failed')}`)
+      }
+
+      if (!user) {
+        logger.error('Google auth failed: No user returned', { info })
+        return res.redirect(`${process.env.FRONTEND_URL}/auth?error=${encodeURIComponent('Google authentication failed - no user data received')}`)
+      }
+
+      // Generate JWT tokens for the user
+      const tokenPayload = { userId: user.id, email: user.email }
+      const { accessToken, refreshToken } = generateTokenPair(tokenPayload)
+
+      // Store refresh token in database
+      await authService.storeRefreshToken(refreshToken, user.id)
+
+      // Set refresh token in httpOnly cookie
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'strict',
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      })
+
+      // Remove sensitive data from user object
+      const { passwordHash, ...userWithoutPassword } = user
+
+      // Redirect to frontend with success and user data
+      const userData = encodeURIComponent(JSON.stringify({
+        user: userWithoutPassword,
+        accessToken
+      }))
+
+      logger.info('Google auth successful for user:', user.email)
+      res.redirect(`${process.env.FRONTEND_URL}/auth?success=true&data=${userData}`)
+    } catch (error: any) {
+      logger.error('Google callback processing error:', error)
+      res.redirect(`${process.env.FRONTEND_URL}/auth?error=${encodeURIComponent('Authentication processing failed')}`)
+    }
+  })(req, res)
 }

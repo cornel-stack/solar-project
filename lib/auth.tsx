@@ -10,6 +10,8 @@ interface User {
   phone?: string
   emailVerified: boolean
   preferences?: any
+  provider?: string
+  createdAt?: string
 }
 
 interface AuthContextType {
@@ -19,6 +21,7 @@ interface AuthContextType {
   register: (data: { email: string; password: string; name?: string; phone?: string }) => Promise<void>
   logout: () => Promise<void>
   updateProfile: (data: { name?: string; phone?: string; preferences?: any }) => Promise<void>
+  loginWithGoogle: (user: User) => Promise<void>
   isAuthenticated: boolean
 }
 
@@ -35,6 +38,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const initializeAuth = async () => {
     try {
+      // First check for Google auth user in localStorage
+      const savedUser = localStorage.getItem('user')
+      const authToken = localStorage.getItem('authToken')
+      
+      if (savedUser && authToken) {
+        const userData = JSON.parse(savedUser)
+        setUser(userData)
+        setLoading(false)
+        return
+      }
+
+      // Fallback to API-based auth
       const accessToken = localStorage.getItem('accessToken')
       if (accessToken) {
         api.setAccessToken(accessToken)
@@ -48,8 +63,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const userData = await api.getProfile()
         setUser(userData)
       } catch {
-        // Clear invalid token
+        // Clear invalid tokens
         api.setAccessToken(null)
+        localStorage.removeItem('user')
+        localStorage.removeItem('authToken')
       }
     } finally {
       setLoading(false)
@@ -74,14 +91,34 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  const loginWithGoogle = async (user: User) => {
+    try {
+      console.log('Setting Google user in auth context:', user.email)
+      // Store Google user in localStorage
+      localStorage.setItem('user', JSON.stringify(user))
+      localStorage.setItem('authToken', 'google-auth-token-' + Date.now())
+      setUser(user)
+      console.log('Google user set successfully')
+    } catch (error) {
+      console.error('Error in loginWithGoogle:', error)
+      throw error
+    }
+  }
+
   const logout = async () => {
     try {
-      await api.logout()
+      // Only call API logout if using API-based auth
+      if (localStorage.getItem('accessToken')) {
+        await api.logout()
+      }
     } catch {
       // Continue with logout even if API call fails
     } finally {
       setUser(null)
       api.setAccessToken(null)
+      // Clear Google auth data
+      localStorage.removeItem('user')
+      localStorage.removeItem('authToken')
     }
   }
 
@@ -101,6 +138,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     register,
     logout,
     updateProfile,
+    loginWithGoogle,
     isAuthenticated: !!user,
   }
 

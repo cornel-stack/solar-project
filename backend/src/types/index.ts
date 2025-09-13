@@ -1,8 +1,19 @@
 import { Request } from 'express'
-import { User } from '@prisma/client'
+
+export interface AuthUser {
+  id: string
+  email: string
+  name: string | null
+  phone: string | null
+  emailVerified: boolean
+  provider: string | null
+  createdAt: Date
+  updatedAt: Date
+  preferences: any
+}
 
 export interface AuthRequest extends Request {
-  user?: User
+  user?: AuthUser
 }
 
 export interface JWTPayload {
