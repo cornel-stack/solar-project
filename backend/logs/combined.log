@@ -137,3 +137,9 @@
 {"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T06:16:50.678Z"}
 {"level":"info","message":"Google auth successful for user:","service":"solar-africa-api","timestamp":"2025-09-13T06:20:01.649Z"}
 {"level":"info","message":"Google auth successful for user:","service":"solar-africa-api","timestamp":"2025-09-13T06:22:27.760Z"}
+{"level":"info","message":"🚀 Server running on port 8000","service":"solar-africa-api","timestamp":"2025-09-13T14:48:31.093Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T14:48:31.106Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T14:48:31.137Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:8000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T14:48:31.142Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T14:48:31.192Z"}
+{"level":"info","message":"Google auth successful for user:","service":"solar-africa-api","timestamp":"2025-09-13T14:51:47.205Z"}
