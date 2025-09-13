@@ -3,3 +3,137 @@
 {"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.307Z"}
 {"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.307Z"}
 {"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.308Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:28:12.025Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:28:12.030Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:28:12.030Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:28:12.031Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:28:12.031Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:28:32.194Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:28:32.200Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:28:32.200Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:28:32.201Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:28:32.201Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:28:50.611Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:28:50.617Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:28:50.617Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:28:50.617Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:28:50.618Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:49:40.248Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:49:40.253Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:49:40.254Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:49:40.254Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:49:40.254Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:49:52.294Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:49:52.304Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:49:52.305Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:49:52.305Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:49:52.306Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:00.724Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:50:00.730Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:00.731Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:50:00.731Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:50:00.732Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:09.646Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:50:09.651Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:09.651Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:50:09.652Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:50:09.652Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:14.539Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:50:14.544Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:14.544Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:50:14.545Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:50:14.545Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:25.507Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:50:25.512Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:25.512Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:50:25.513Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:50:25.513Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:33.970Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:50:33.975Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:50:33.975Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:50:33.976Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:50:33.976Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:12.393Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:52:12.399Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:12.400Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:52:12.400Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:52:12.402Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:16.807Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:52:16.811Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:16.812Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:52:16.812Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:52:16.812Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:25.614Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:52:25.619Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:25.619Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:52:25.619Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:52:25.620Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:47.187Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:52:47.193Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:47.193Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:52:47.193Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:52:47.194Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:51.769Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:52:51.774Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:51.775Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:52:51.775Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:52:51.776Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:58.898Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:52:58.903Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:52:58.904Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:52:58.904Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:52:58.904Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T05:56:47.510Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:56:47.518Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:56:47.519Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:56:47.520Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:56:47.520Z"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"solar-africa-api","timestamp":"2025-09-13T05:57:44.527Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:57:44.532Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:57:44.533Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5001/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:57:44.534Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5001/api","service":"solar-africa-api","timestamp":"2025-09-13T05:57:44.534Z"}
+{"level":"info","message":"🚀 Server running on port 5001","service":"solar-africa-api","timestamp":"2025-09-13T05:58:11.191Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:58:11.198Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:58:11.198Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5001/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:58:11.198Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5001/api","service":"solar-africa-api","timestamp":"2025-09-13T05:58:11.198Z"}
+{"level":"info","message":"🚀 Server running on port 8000","service":"solar-africa-api","timestamp":"2025-09-13T05:59:15.775Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:59:15.781Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:59:15.781Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:8000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:59:15.790Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:59:15.791Z"}
+{"level":"info","message":"🚀 Server running on port 8000","service":"solar-africa-api","timestamp":"2025-09-13T05:59:50.741Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T05:59:50.746Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T05:59:50.747Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:8000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T05:59:50.747Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T05:59:50.747Z"}
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T06:02:27.817Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T06:02:27.822Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T06:02:27.822Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T06:02:27.828Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T06:02:27.829Z"}
+{"level":"info","message":"🚀 Server running on port 3001","service":"solar-africa-api","timestamp":"2025-09-13T06:03:08.157Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T06:03:08.161Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T06:03:08.162Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:3001/api/health","service":"solar-africa-api","timestamp":"2025-09-13T06:03:08.162Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:3001/api","service":"solar-africa-api","timestamp":"2025-09-13T06:03:08.162Z"}
+{"level":"info","message":"🚀 Server running on port 8000","service":"solar-africa-api","timestamp":"2025-09-13T06:06:47.374Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T06:06:47.378Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T06:06:47.379Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:8000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T06:06:47.379Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T06:06:47.380Z"}
+{"level":"error","message":"Google auth error:","service":"solar-africa-api","timestamp":"2025-09-13T06:13:08.123Z"}
+{"level":"info","message":"🚀 Server running on port 8000","service":"solar-africa-api","timestamp":"2025-09-13T06:13:30.437Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T06:13:30.441Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T06:13:30.442Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:8000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T06:13:30.442Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T06:13:30.442Z"}
+{"level":"info","message":"Received SIGINT. Starting graceful shutdown...","service":"solar-africa-api","timestamp":"2025-09-13T06:16:10.365Z"}
+{"level":"info","message":"🚀 Server running on port 8000","service":"solar-africa-api","timestamp":"2025-09-13T06:16:50.672Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T06:16:50.677Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T06:16:50.678Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:8000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T06:16:50.678Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:8000/api","service":"solar-africa-api","timestamp":"2025-09-13T06:16:50.678Z"}
+{"level":"info","message":"Google auth successful for user:","service":"solar-africa-api","timestamp":"2025-09-13T06:20:01.649Z"}
+{"level":"info","message":"Google auth successful for user:","service":"solar-africa-api","timestamp":"2025-09-13T06:22:27.760Z"}

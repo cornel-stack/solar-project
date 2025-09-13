@@ -15,10 +15,12 @@ interface User {
 
 interface ProfileHeaderProps {
   user: User
+  onTabChange?: (tab: string) => void
 }
 
-export default function ProfileHeader({ user }: ProfileHeaderProps) {
+export default function ProfileHeader({ user, onTabChange }: ProfileHeaderProps) {
   const [isUploading, setIsUploading] = useState(false)
+  const [isExporting, setIsExporting] = useState(false)
 
   const getInitials = (name: string) => {
     return name
@@ -44,6 +46,73 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
     month: 'long',
     year: 'numeric'
   })
+
+  const handleViewAchievements = () => {
+    if (onTabChange) {
+      onTabChange('solar')
+    }
+  }
+
+  const handleExportData = async () => {
+    setIsExporting(true)
+    // Simulate export delay
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    
+    // Create and download comprehensive user data
+    const data = {
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        emailVerified: user.emailVerified,
+        createdAt: user.createdAt,
+        preferences: user.preferences
+      },
+      solarPlans: [
+        {
+          id: 1,
+          name: "Home Solar System - 5kW",
+          capacity: 5,
+          estimatedCost: 450000,
+          estimatedSavings: 4200,
+          createdAt: "2024-01-15"
+        },
+        {
+          id: 2,
+          name: "Business Solar Setup - 10kW",
+          capacity: 10,
+          estimatedCost: 850000,
+          estimatedSavings: 8300,
+          createdAt: "2024-03-20"
+        }
+      ],
+      achievements: [
+        { title: "First Solar Plan", earned: true, date: "2024-01-15" },
+        { title: "Green Pioneer", earned: true, date: "2024-03-20" },
+        { title: "Carbon Warrior", earned: true, date: "2024-05-10" }
+      ],
+      stats: {
+        totalPlans: 3,
+        totalCapacity: 15.2,
+        estimatedSavings: 12500,
+        co2Reduction: 8500
+      },
+      exportDate: new Date().toISOString(),
+    }
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `solarafrica-profile-data-${new Date().toISOString().split('T')[0]}.json`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+    
+    setIsExporting(false)
+  }
 
   return (
     <div className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 rounded-2xl shadow-xl overflow-hidden">
@@ -138,13 +207,24 @@ export default function ProfileHeader({ user }: ProfileHeaderProps) {
 
           {/* Action Buttons */}
           <div className="flex flex-col space-y-3">
-            <button className="bg-white text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center space-x-2">
+            <button 
+              onClick={handleViewAchievements}
+              className="bg-white text-gray-800 px-6 py-2 rounded-lg font-medium hover:bg-gray-100 transition-colors flex items-center space-x-2"
+            >
               <span>🏆</span>
               <span>View Achievements</span>
             </button>
-            <button className="border-2 border-white text-white px-6 py-2 rounded-lg font-medium hover:bg-white hover:text-gray-800 transition-colors flex items-center space-x-2">
-              <span>📊</span>
-              <span>Export Data</span>
+            <button 
+              onClick={handleExportData}
+              disabled={isExporting}
+              className="border-2 border-white text-white px-6 py-2 rounded-lg font-medium hover:bg-white hover:text-gray-800 transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isExporting ? (
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
+              ) : (
+                <span>📊</span>
+              )}
+              <span>{isExporting ? 'Exporting...' : 'Export Data'}</span>
             </button>
           </div>
         </div>
