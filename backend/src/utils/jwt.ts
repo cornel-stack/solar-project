@@ -3,12 +3,14 @@ import { JWTPayload } from '@/types'
 import config from '@/config'
 
 export const generateAccessToken = (payload: JWTPayload): string => {
+  // @ts-ignore
   return jwt.sign(payload, config.jwtSecret, {
     expiresIn: config.jwtExpiresIn,
   })
 }
 
 export const generateRefreshToken = (payload: JWTPayload): string => {
+  // @ts-ignore
   return jwt.sign(payload, config.jwtRefreshSecret, {
     expiresIn: config.jwtRefreshExpiresIn,
   })

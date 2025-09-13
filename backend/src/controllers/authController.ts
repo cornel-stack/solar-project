@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import { AuthService } from '@/services/authService'
 import { sendSuccess, sendError, sendValidationError } from '@/utils/response'
-import { AuthRequest } from '@/types'
 import logger from '@/utils/logger'
 import { body, validationResult } from 'express-validator'
 import passport from 'passport'
@@ -125,7 +124,7 @@ export const logout = async (req: Request, res: Response): Promise<void> => {
   }
 }
 
-export const getProfile = async (req: AuthRequest, res: Response): Promise<void> => {
+export const getProfile = async (req: Request, res: Response): Promise<void> => {
   try {
     if (!req.user) {
       sendError(res, 'User not found', 404)
@@ -139,7 +138,7 @@ export const getProfile = async (req: AuthRequest, res: Response): Promise<void>
   }
 }
 
-export const updateProfile = async (req: AuthRequest, res: Response): Promise<void> => {
+export const updateProfile = async (req: Request, res: Response): Promise<void> => {
   try {
     if (!req.user) {
       sendError(res, 'User not found', 404)

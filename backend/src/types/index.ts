@@ -16,6 +16,7 @@ export interface AuthRequest extends Request {
   user?: AuthUser
 }
 
+
 export interface JWTPayload {
   userId: string
   email: string
@@ -44,6 +45,7 @@ export interface SolarCalculationResult {
   inverterSize: number
   upfrontCost: number
   annualSavings: number
+  batteryReplacementCost: number
   paybackPeriod: number
   roi: number
   co2Reduction: number
@@ -53,6 +55,8 @@ export interface SolarCalculationResult {
     inverter: number
     installation: number
   }
+  financingOptions: any
+  governmentIncentive: number
 }
 
 export interface ApiResponse<T = any> {

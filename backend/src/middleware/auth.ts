@@ -1,12 +1,11 @@
 import { Request, Response, NextFunction } from 'express'
 import { verifyAccessToken } from '@/utils/jwt'
-import { AuthRequest } from '@/types'
 import { sendError } from '@/utils/response'
 import prisma from '@/config/database'
 import logger from '@/utils/logger'
 
 export const authenticate = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
@@ -63,7 +62,7 @@ export const authenticate = async (
 }
 
 export const optionalAuth = async (
-  req: AuthRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {

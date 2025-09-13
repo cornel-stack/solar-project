@@ -1,7 +1,6 @@
-import { Response } from 'express'
+import { Request, Response } from 'express'
 import { PlanService } from '@/services/planService'
 import { sendSuccess, sendError, sendValidationError } from '@/utils/response'
-import { AuthRequest } from '@/types'
 import logger from '@/utils/logger'
 import { body, query, validationResult } from 'express-validator'
 
@@ -35,7 +34,7 @@ export const validatePagination = [
   query('sortOrder').optional().isIn(['asc', 'desc']).withMessage('Sort order must be asc or desc'),
 ]
 
-export const createPlan = async (req: AuthRequest, res: Response): Promise<void> => {
+export const createPlan = async (req: Request, res: Response): Promise<void> => {
   try {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -57,7 +56,7 @@ export const createPlan = async (req: AuthRequest, res: Response): Promise<void>
   }
 }
 
-export const getUserPlans = async (req: AuthRequest, res: Response): Promise<void> => {
+export const getUserPlans = async (req: Request, res: Response): Promise<void> => {
   try {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -87,7 +86,7 @@ export const getUserPlans = async (req: AuthRequest, res: Response): Promise<voi
   }
 }
 
-export const getPlanById = async (req: AuthRequest, res: Response): Promise<void> => {
+export const getPlanById = async (req: Request, res: Response): Promise<void> => {
   try {
     const { id } = req.params
     const userId = req.user?.id
@@ -103,7 +102,7 @@ export const getPlanById = async (req: AuthRequest, res: Response): Promise<void
   }
 }
 
-export const updatePlan = async (req: AuthRequest, res: Response): Promise<void> => {
+export const updatePlan = async (req: Request, res: Response): Promise<void> => {
   try {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -127,7 +126,7 @@ export const updatePlan = async (req: AuthRequest, res: Response): Promise<void>
   }
 }
 
-export const deletePlan = async (req: AuthRequest, res: Response): Promise<void> => {
+export const deletePlan = async (req: Request, res: Response): Promise<void> => {
   try {
     if (!req.user) {
       sendError(res, 'Authentication required', 401)
@@ -145,7 +144,7 @@ export const deletePlan = async (req: AuthRequest, res: Response): Promise<void>
   }
 }
 
-export const duplicatePlan = async (req: AuthRequest, res: Response): Promise<void> => {
+export const duplicatePlan = async (req: Request, res: Response): Promise<void> => {
   try {
     if (!req.user) {
       sendError(res, 'Authentication required', 401)
@@ -165,7 +164,7 @@ export const duplicatePlan = async (req: AuthRequest, res: Response): Promise<vo
   }
 }
 
-export const sharePlan = async (req: AuthRequest, res: Response): Promise<void> => {
+export const sharePlan = async (req: Request, res: Response): Promise<void> => {
   try {
     if (!req.user) {
       sendError(res, 'Authentication required', 401)
@@ -183,7 +182,7 @@ export const sharePlan = async (req: AuthRequest, res: Response): Promise<void> 
   }
 }
 
-export const getSharedPlan = async (req: AuthRequest, res: Response): Promise<void> => {
+export const getSharedPlan = async (req: Request, res: Response): Promise<void> => {
   try {
     const { token } = req.params
     const plan = await planService.getSharedPlan(token)

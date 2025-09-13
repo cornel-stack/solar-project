@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { SolarCalculationService } from '@/services/solarCalculationService'
 import { sendSuccess, sendError, sendValidationError } from '@/utils/response'
-import { CalculatorData, AuthRequest } from '@/types'
+import { CalculatorData } from '@/types'
 import logger from '@/utils/logger'
 import { body, validationResult } from 'express-validator'
 
