@@ -1,0 +1,200 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl= env("DIRECT_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String?  @map("password_hash")
+  name          String?
+  phone         String?
+  emailVerified Boolean  @default(false) @map("email_verified")
+  
+  // OAuth fields
+  oauthProvider String? @map("oauth_provider")
+  oauthId       String? @map("oauth_id")
+  
+  // Metadata
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  lastLogin     DateTime? @map("last_login")
+  
+  // JSON fields for flexibility
+  preferences   Json?
+  
+  // Relations
+  solarPlans    SolarPlan[]
+  quotes        Quote[]
+  refreshTokens RefreshToken[]
+  
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String   @map("user_id")
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("refresh_tokens")
+}
+
+model SolarPlan {
+  id            String      @id @default(cuid())
+  userId        String      @map("user_id")
+  name          String
+  category      PlanCategory
+  location      String
+  sunlightHours Float       @map("sunlight_hours")
+  status        PlanStatus  @default(DRAFT)
+  
+  // Calculated results stored as JSON
+  systemSpecs   Json?       @map("system_specs")
+  financialData Json?       @map("financial_data")
+  
+  // Sharing
+  sharedToken   String?     @unique @map("shared_token")
+  isPublic      Boolean     @default(false) @map("is_public")
+  
+  // Metadata
+  createdAt     DateTime    @default(now()) @map("created_at")
+  updatedAt     DateTime    @updatedAt @map("updated_at")
+  
+  // Relations
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  devices       Device[]
+  calculations  Calculation[]
+  quotes        Quote[]
+  
+  @@map("solar_plans")
+}
+
+model Device {
+  id               String @id @default(cuid())
+  planId           String @map("plan_id")
+  deviceType       String @map("device_type")
+  quantity         Int    @default(1)
+  hoursPerDay      Int    @map("hours_per_day")
+  powerConsumption Int    @map("power_consumption") // Watts
+  isCustomDevice   Boolean @default(false) @map("is_custom_device")
+  
+  // Metadata
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+  
+  // Relations
+  plan             SolarPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  
+  @@map("devices")
+}
+
+model DeviceCatalog {
+  id               String  @id @default(cuid())
+  name             String  @unique
+  category         String
+  powerConsumption Int     @map("power_consumption") // Watts
+  icon             String?
+  description      String?
+  isActive         Boolean @default(true) @map("is_active")
+  
+  // Metadata
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+  
+  @@map("device_catalog")
+}
+
+model Calculation {
+  id                String    @id @default(cuid())
+  planId            String    @map("plan_id")
+  
+  // System specifications
+  energyDemand      Float     @map("energy_demand") // kWh/day
+  panelSize         Float     @map("panel_size") // kW
+  batteryCapacity   Float     @map("battery_capacity") // kWh
+  inverterSize      Float     @map("inverter_size") // kW
+  
+  // Financial calculations
+  upfrontCost       Float     @map("upfront_cost") // USD
+  annualSavings     Float     @map("annual_savings") // USD
+  paybackPeriod     Float     @map("payback_period") // years
+  roi               Float     // percentage
+  
+  // Environmental impact
+  co2Reduction      Float     @map("co2_reduction") // kg/year
+  
+  // Detailed cost breakdown (JSON)
+  costBreakdown     Json      @map("cost_breakdown")
+  
+  // Metadata
+  calculationVersion String   @default("1.0") @map("calculation_version")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  
+  // Relations
+  plan              SolarPlan @relation(fields: [planId], references: [id], onDelete: Cascade)
+  
+  @@map("calculations")
+}
+
+model Quote {
+  id                String      @id @default(cuid())
+  planId            String      @map("plan_id")
+  userId            String      @map("user_id")
+  
+  // Quote details
+  contactName       String      @map("contact_name")
+  contactEmail      String      @map("contact_email")
+  contactPhone      String?     @map("contact_phone")
+  
+  // Quote specifics
+  quoteAmount       Float?      @map("quote_amount")
+  installationDays  Int?        @map("installation_days")
+  notes             String?
+  
+  // Status and timing
+  status            QuoteStatus @default(PENDING)
+  expiresAt         DateTime?   @map("expires_at")
+  respondedAt       DateTime?   @map("responded_at")
+  
+  // Metadata
+  createdAt         DateTime    @default(now()) @map("created_at")
+  updatedAt         DateTime    @updatedAt @map("updated_at")
+  
+  // Relations
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan              SolarPlan   @relation(fields: [planId], references: [id], onDelete: Cascade)
+  
+  @@map("quotes")
+}
+
+enum PlanCategory {
+  HOME
+  BUSINESS
+  FARM
+}
+
+enum PlanStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum QuoteStatus {
+  PENDING
+  RESPONDED
+  ACCEPTED
+  DECLINED
+  EXPIRED
+}

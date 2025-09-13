@@ -1,0 +1,5 @@
+{"level":"info","message":"🚀 Server running on port 5000","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.301Z"}
+{"level":"info","message":"📝 Environment: development","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.307Z"}
+{"level":"info","message":"🌐 Frontend URL: http://localhost:3000","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.307Z"}
+{"level":"info","message":"🔍 API Health: http://localhost:5000/api/health","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.307Z"}
+{"level":"info","message":"📊 API Docs: http://localhost:5000/api","service":"solar-africa-api","timestamp":"2025-09-13T03:30:53.308Z"}
